@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/> 
+	 <script src="js/jquery-3.3.1.min.js"></script>
+</head>  
+<body>  
+    <div id="login">  
+        <h1>Register</h1>  
+        <div>  
+            <input type="text" id="email" required="required" placeholder="Email" name="u"></input>  
+            <div>
+				<input id="vcode" style="width: 120px;" placeholder="Verification Code" name="v"></input>
+				<button class="but2" onclick="getVerifyCode();">Get Code</button>  
+			</div>
+			<input type="password" id="pwd" placeholder="Password" name="p"></input> 
+			 <input type="password" id="cnpwd" placeholder="Password" name="cp"></input>  
+            <button class="but" onclick="register();">Register</button>
+		</div>
+    </div>
+	<script>
+		var code = "";
+		function isEmpty(obj) {
+			if (typeof obj == "undefined" || obj == null || obj == "") {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	
+		function getVerifyCode() {
+			var email = $('#email').val();
+			if (isEmpty(email)) {
+				alert("Mailbox cannot be empty")
+				return;
+			}
+			var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			if (!myreg.test(email)) {
+				alert('Prompt: Please enter a valid E_ mail！');
+				myreg.focus();
+				return;
+			}
+			var url = "http://174.138.53.94:8080/getVerifyCode/";
+			var data = {
+					username: email
+				};
+			$.ajax({
+					url: url,
+					type: "post",
+					data: data,
+					dataType: 'json',
+					success: (res) => {
+						code = res.data
+						alert("Verification code has been sent to email, please check");
+					},
+					error: (err) => {
+						alert("Failed to obtain verification code");
+					}
+				});
+		}
+	
+		function register() {
+			var email = $('#email').val();
+			var vcode = $('#vcode').val();
+			var pwd = $('#pwd').val();
+			var cnpwd = $('#cnpwd').val();
+			if (isEmpty(code)) {
+				alert("Please get the verification code first")
+				return;
+			}
+			if (isEmpty(email)) {
+				alert("The mailbox cannot be empty")
+				return;
+			}
+			if (isEmpty(vcode)) {
+				alert("Verification code cannot be empty")
+				return;
+			}
+			
+			if (isEmpty(pwd)) {
+				alert("Password cannot be empty")
+				return;
+			}
+			
+			if (isEmpty(cnpwd)) {
+				alert("Confirm password cannot be empty")
+				return;
+			}
+			
+			if(code != vcode){
+				alert("Verification code error")
+				return;
+			}
+			
+			if(pwd != cnpwd){
+				alert("The two password inputs are inconsistent")
+				return;
+			}
+			var url = "http://174.138.53.94:8080/register/";
+			var data = {
+					username: email,
+					password: pwd
+				};
+			$.ajax({
+					url: url,
+					type: "post",
+					data: data,
+					dataType: 'json',
+					success: (res) => {
+						if (res.code == 200){
+							alert("login was successful");
+						}else if(res.code == 300){
+							alert("Account registered");
+						}else{
+							alert("login has failed");
+						}
+					},
+					error: (err) => {
+						alert("login has failed");
+					}
+				});
+		}
+	</script>
+</body>  
+</html>

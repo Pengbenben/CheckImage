@@ -1,0 +1,81 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Login</title>  
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>  
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+</head>  
+<body>
+    <div id="login">
+        <h1>Login</h1>  
+        <div>  
+            <input type="text" id="email" required="required" placeholder="Email" name="u"></input>  
+            <input type="password" id="pwd" required="required" placeholder="Password" name="p"></input>  
+            <button class="but" onclick="login();">Login</button>  
+		</div>
+		<div style="margin-top: 10px;margin-bottom: 10px;">
+			<button onclick= skip(); class="but">Register</button>
+		</div>
+    </div>
+	<script>
+		function isEmpty(obj) {
+			if (typeof obj == "undefined" || obj == null || obj == "") {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		function skip(){
+	        window.location.href='register.html';
+        }
+	
+		function login() {
+			var email = $('#email').val();
+			var pwd = $('#pwd').val();
+			if (isEmpty(email)) {
+				alert("The mailbox cannot be empty")
+				return;
+			}
+			
+			if (isEmpty(pwd)) {
+				alert("Password cannot be empty")
+				return;
+			}
+			$.post("login", {
+					username: email,
+					password: pwd
+				},
+				function(data) {
+					alert("Data Loaded: " + data);
+					$(".result").html(data);
+				});
+				var url = "http://174.138.53.94:8080/login/";
+				var data = {
+						username: email,
+						password: pwd
+					};
+				$.ajax({
+						url: url,
+						type: "post",
+						data: data,
+						dataType: 'json',
+						success: (res) => {
+							if (res.code == 200){
+								sessionStorage.setItem('mid', res.data);
+								alert("Login successfully");
+								window.location.href="main.html"
+							}else{
+								alert("Login failed");
+							}
+						},
+						error: (err) => {
+							alert("Login failed");
+						}
+					});
+		}
+	</script>
+</body>  
+</html>

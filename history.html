@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>CheckImage</title>
+		<link rel="shortcut icon" href="img/logo/favicon.png">
+
+		<!-- FONT_AWESOME -->
+		<link rel="stylesheet" href="css/all.min.css">
+		<link rel="stylesheet" href="css/fontawesome.min.css">
+
+		<!-- THEMIFY ICON -->
+		<link rel="stylesheet" href="css/themify-icons.css">
+
+		<!-- OWL CAROUSEL -->
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+
+		<!-- NICE SELECT -->
+		<link rel="stylesheet" href="css/nice-select.css">
+
+		<!-- FANCY_BOX -->
+		<link rel="stylesheet" href="css/jquery.fancybox.min.css">
+
+		<!-- BOOTSTRAP -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/viewer.min.css">
+		<!-- PERSONAL STYLE -->
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/responsive.css">
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/jquery.nice-select.js"></script>
+		<script src="js/jquery.fancybox.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/libs/require.js" data-main="js/cmain"></script>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/cstyle.css">
+		<script src="js/viewer.min.js"></script>
+		
+		
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#jq22 {
+				width: 700px;
+				margin: 0 auto;
+				font-size: 0;
+			}
+
+			#jq22 li {
+				display: inline-block;
+				width: 32%;
+				margin-left: 1%;
+				padding-top: 1%;
+			}
+
+			#jq22 li img {
+				width: 100%;
+			}
+
+			.btns {
+				position: relative;
+				z-index: 10000;
+				width: 700px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.btns a {
+				display: inline-block;
+				width: 70px;
+				margin-top: 15px;
+				line-height: 26px;
+				font-size: 12px;
+				color: #fff;
+				background-color: #21b384;
+				text-decoration: none;
+			}
+
+			.btns a:hover {
+				background-color: #1fa67a;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<nav class=" navbar navbar-expand-lg top-menu">
+			<div class="container-fluid">
+				<div class="collapse main-nav navbar-collapse" id="navbarSupportedContent-333">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="./main.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="./history.html">History</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./collect.html">Collect</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		</header>
+
+		<!-- HEADER END -->
+
+		<!-- BANNER START -->
+
+		<div>
+			<div class="btns">
+				<label>Date</label>
+				<select id="times">
+
+				</select>
+				<button class="but" onclick="getData2();" style="width: 50px;">ok</button>
+			</div>
+			<div class="box">
+				<ul class="ulf" id="menu">
+
+				</ul>
+			</div>
+			<div class="btom">
+				<span class="sy" id="first">first</span>
+				<span class="up" id="previous" style="width: 80px;">previous</span>
+				<ol class="olf" id="page">
+
+				</ol>
+				<span class="down" id="next">next</span>
+				<span class="wy" id="back">end</span>
+			</div>
+			<div style="margin-bottom: 70px;">
+				<ul id="jq22">
+
+				</ul>
+
+				<div class="btns">
+					<a id="btn1" href="javascript:">show()</a>
+					<a id="btn2" href="javascript:">hide()</a>
+					<a id="btn3" href="javascript:">view()</a>
+					<a id="btn4" href="javascript:">next()</a>
+					<a id="btn5" href="javascript:">prev()</a>
+					<a id="btn6" href="javascript:">move()</a>
+					<a id="btn7" href="javascript:">moveTo()</a>
+					<a id="btn8" href="javascript:">zoom()</a>
+					<a id="btn9" href="javascript:">zoomTo()</a>
+					<a id="btn10" href="javascript:">rotate()</a>
+					<a id="btn11" href="javascript:">rotateTo()</a>
+					<a id="btn12" href="javascript:">scale()</a>
+					<a id="btn13" href="javascript:">scaleX()</a>
+					<a id="btn14" href="javascript:">scaleY()</a>
+					<a id="btn15" href="javascript:">play()</a>
+					<a id="btn16" href="javascript:">stop()</a>
+					<a id="btn17" href="javascript:">full()</a>
+					<a id="btn18" href="javascript:">exit()</a>
+					<a id="btn19" href="javascript:">tooltip()</a>
+					<a id="btn20" href="javascript:">toggle()</a>
+					<a id="btn21" href="javascript:">reset()</a>
+					<a id="btn22" href="javascript:">destroy()</a>
+					<a id="btn23" href="javascript:">download()</a>
+					<a id="btn24" href="javascript:">downloadAll()</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- FOOTER START -->
+
+		<footer class="footer-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="footer-content">
+							<p>Copyright &copy; 2020.Company test All rights reserved.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</footer>
+
+		<!-- BACK TO TOP -->
+
+		<div id="toTop" class="back-to-top text-right">
+			<i class="ti-arrow-up"></i>
+		</div>
+
+		<!-- END -->
+
+
+	</body>
+	<script>
+		var page = 1;
+		var files = new Array();
+		var names = new Array();
+
+		function isEmpty(obj) {
+			if (typeof obj == "undefined" || obj == null || obj == "") {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		$("ol#page").on("click", "li", function() { //只需要找到你点击的是哪个ul里面的就行
+			var index = parseInt($(this).text());
+			page = index;
+			getData(page);
+		});
+		$("ul#menu").on("click", "li", function() { //只需要找到你点击的是哪个ul里面的就行
+			var index = parseInt(this.id);
+
+		});
+		$('#first').bind("click", function() {
+			page = 1;
+			getData(1);
+		});
+		$('#previous').bind("click", function() {
+			page = page - 1;
+			if (page < 1) {
+				page = pageCount;
+			}
+			getData(page);
+		});
+		$('#next').bind("click", function() {
+			page = page + 1;
+			if (page > pageCount) {
+				page = 1;
+			}
+			getData(page);
+		});
+		$('#back').bind("click", function() {
+			page = pageCount;
+			getData(page);
+		});
+		getData(page);
+
+
+		function getData(page) {
+			var url = "http://174.138.53.94:8080/getMyHistory/";
+			var mid = sessionStorage.getItem('mid');
+			var sel = $("#times");
+			var val = sel.find('option:selected').val();
+			var dt = {
+				page: page,
+				pageSize: 5,
+				mid: mid,
+				time: val
+			};
+			$.ajax({
+				url: url,
+				type: "post",
+				data: dt,
+				success: (res) => {
+					console.log('ok')
+
+					$("#menu").find("li").remove();
+					$("#page").find("li").remove();
+					$("#jq22").find("li").remove();
+					files = new Array();
+					names = new Array();
+					var prefix = "http://174.138.53.94:8080";
+					if (res.code == 200) {
+						var mid = sessionStorage.getItem('mid');
+						var ary = JSON.parse(res.data);
+						var ary2 = JSON.parse(res.date);
+						var sel = $("#times");
+						sel.empty();
+						for (var i = 0; i < ary2.length; i++) {
+							var obj = ary2[i];
+							var time = "<option value='" + obj + "'>" + obj + "</option>";
+							// times.append(obj);
+							sel.append(time);
+						}
+
+						for (var i = 0; i < ary.length; i++) {
+							var obj = ary[i];
+							var li = "<li id='" + obj.id + "'>";
+							var img = "<img src='" + prefix + obj.thumnail + "' width='120px' height='120px'>";
+							var h3 = "<h3>" + obj.name + "</h3>";
+							var btn = "<a style='margin-top: 10px;' href='" + prefix + obj.thumnail + "'>download</a>";
+							var vd = prefix + obj.destFilePath;
+							// var btn3 = "<a style='margin-top: 10px;margin-left: 10px;' href='#' onclick='videoPlay("+
+							// vd+")'>play</a>";
+							files.push(obj.destFilePath);
+							names.push(obj.name);
+
+							// }
+							var btn2 = "<button style='margin-left: 10px;margin-top: 10px;' onclick='collect(" + obj.id +
+								")'>collect</button>";
+							var btn3 = "<button style='margin-left: 10px;margin-top: 10px;' onclick='videoPlay("+i+")'>play</button>";
+							var end = "</li>";
+							var content = li + img + h3 + btn + btn2 +btn3+ end;
+							$("#menu").append(content);
+							var msg = "<li><img data-original='" + obj.srcFilePath + "' src='" + obj.destFilePath + "'></li>";
+							$("#jq22").append(content);
+						}
+						if(viewer == null){
+							viewer = new Viewer(document.getElementById('jq22'), {
+								url: 'data-original'
+							});
+						}
+						
+						pageCount = 0 | (res.count / 5 + 1);
+
+						for (var j = 1; j <= pageCount; j++) {
+							var pg = "<li>" + j + "</li>";
+							$("#page").append(pg);
+						}
+					} else {
+						alert("Failed to get data");
+					}
+				},
+				error: (err) => {
+					alert("Failed to get data");
+				}
+			});
+		}
+		
+		function test(i) {
+			alert(i);
+		}
+		
+		function videoPlay(index) {
+			var url = "http://174.138.53.94:8080"+files[index];
+			window.location.href="play.html?url="+url;
+		}
+
+		function collect(id) {
+			var url = "http://174.138.53.94:8080/collect/";
+			var mid = sessionStorage.getItem('mid');
+			var hd = id;
+			var dt = {
+				hid: hd,
+				mid: mid
+			};
+			$.ajax({
+				url: url,
+				type: "post",
+				data: dt,
+				success: (res) => {
+					console.log('ok')
+					if (res.code == 200) {
+						alert("Collect successfully");
+					} else {
+						alert("Collect failed");
+					}
+				},
+				error: (err) => {
+					alert("Collect failed");
+				}
+			});
+		}
+
+		function download(url) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true); //get请求，请求地址，是否异步
+			xhr.responseType = "blob"; // 返回类型blob
+			xhr.onload = function() { // 请求完成处理函数
+				if (this.status === 200) {
+					var blob = this.response; // 获取返回值
+					var a = document.createElement('a');
+					a.download = 'data.doc';
+					a.href = window.URL.createObjectURL(blob);
+					a.click();
+				}
+			};
+			// 发送ajax请求
+			xhr.send();
+		}
+		var viewer;
+
+		document.getElementById('btn1').onclick = function() {
+			viewer.show();
+		}
+
+		document.getElementById('btn2').onclick = function() {
+			viewer.hide();
+		}
+
+		document.getElementById('btn3').onclick = function() {
+			viewer.view(5);
+		}
+
+		document.getElementById('btn4').onclick = function() {
+			viewer.next();
+		}
+
+		document.getElementById('btn5').onclick = function() {
+			viewer.prev();
+		}
+
+		document.getElementById('btn6').onclick = function() {
+			viewer.move(-10, 0);
+		}
+
+		document.getElementById('btn7').onclick = function() {
+			viewer.moveTo(0, 0);
+		}
+
+		document.getElementById('btn8').onclick = function() {
+			viewer.zoom(0.1);
+		}
+
+		document.getElementById('btn9').onclick = function() {
+			viewer.zoomTo(1);
+		}
+
+		document.getElementById('btn10').onclick = function() {
+			viewer.rotate(90);
+		}
+
+		document.getElementById('btn11').onclick = function() {
+			viewer.rotateTo(180);
+		}
+
+		document.getElementById('btn12').onclick = function() {
+			viewer.scale(-1);
+		}
+
+		document.getElementById('btn13').onclick = function() {
+			viewer.scaleX(-1);
+		}
+
+		document.getElementById('btn14').onclick = function() {
+			viewer.scaleY(-1);
+		}
+
+		document.getElementById('btn15').onclick = function() {
+			viewer.play();
+		}
+
+		document.getElementById('btn16').onclick = function() {
+			viewer.stop();
+		}
+
+		document.getElementById('btn17').onclick = function() {
+			viewer.full();
+		}
+
+		document.getElementById('btn18').onclick = function() {
+			viewer.exit();
+		}
+
+		document.getElementById('btn19').onclick = function() {
+			viewer.tooltip();
+		}
+
+		document.getElementById('btn20').onclick = function() {
+			viewer.toggle();
+		}
+
+		document.getElementById('btn21').onclick = function() {
+			viewer.reset();
+		}
+
+		document.getElementById('btn22').onclick = function() {
+			viewer.destroy();
+		}
+		document.getElementById('btn23').onclick = function() {
+
+		}
+		document.getElementById('btn24').onclick = function() {
+			var prefix = "http://174.138.53.94:8080";
+			var index = 0;
+			for (var i = 0; i < files.length; i++) {
+				var url = prefix + files[i];
+				window.open(url);
+			}
+		}
+
+		function formatDate(datetime) {
+			var date = new Date(datetime); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+			var year = date.getFullYear();
+			month = ("0" + (date.getMonth() + 1)).slice(-2);
+			sdate = ("0" + date.getDate()).slice(-2);
+			hour = ("0" + date.getHours()).slice(-2);
+			// 拼接
+			var result = year + "-" + month + "-" + sdate ;
+			// 返回
+			return result;
+		}
+
+		function getData2() {
+			page = 1;
+			getData(page);
+		}
+
+		function collect(id) {
+			var url = "http://174.138.53.94:8080/collect/";
+			var mid = sessionStorage.getItem('mid');
+			var hd = id;
+			var dt = {
+				hid: hd,
+				mid: mid
+			};
+			$.ajax({
+				url: url,
+				type: "post",
+				data: dt,
+				success: (res) => {
+					console.log('ok')
+					if (res.code == 200) {
+						alert("Collect successfully");
+					} else {
+						alert("Collect failed");
+					}
+				},
+				error: (err) => {
+					alert("Collect failed");
+				}
+			});
+		}
+	</script>
+</html>
